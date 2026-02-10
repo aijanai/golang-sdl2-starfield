@@ -67,7 +67,7 @@ func newStar() Star {
 	dx := math.Cos(angle)
 	dy := math.Sin(angle)
 
-	d := rand.IntN(100) + 25
+	d := rand.IntN(int(math.Round(float64(windowWidth)/8))) + 1
 
 	// and then calculate the initial position of the star based on the center of the window and the direction
 	pos := position{centerX + dx*float64(d), centerY + dy*float64(d)}
@@ -122,7 +122,7 @@ func main() {
 	defer sdl.Quit()
 
 	sdl.SetHint(sdl.HINT_RENDER_SCALE_QUALITY, "1")
-	window, err := sdl.CreateWindow("Starfield Simulation", sdl.WINDOWPOS_UNDEFINED, sdl.WINDOWPOS_UNDEFINED, windowWidth, windowHeight, sdl.WINDOW_SHOWN)
+	window, err := sdl.CreateWindow("Starfield Simulation", sdl.WINDOWPOS_UNDEFINED, sdl.WINDOWPOS_UNDEFINED, windowWidth, windowHeight, sdl.WINDOW_SHOWN|sdl.WINDOW_RESIZABLE)
 
 	if err != nil {
 		panic(err)

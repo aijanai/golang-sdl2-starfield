@@ -1,4 +1,4 @@
-module localhost/stars
+module github.com/aijanai/stars
 
 go 1.22.2
 
